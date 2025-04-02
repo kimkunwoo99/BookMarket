@@ -1,4 +1,9 @@
 package kr.ac.kopo.konumon.bookmarket.service;
 
-public class BookService {
+import kr.ac.kopo.konumon.bookmarket.domain.Book;
+
+import java.util.List;
+
+public interface BookService {
+    List<Book> getAllBookList();
 }
