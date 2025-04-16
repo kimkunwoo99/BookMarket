@@ -22,4 +22,10 @@ public class BookServiceImpl implements BookService {
         Book book = bookRepository.getBookById(bookId);
         return book;
     }
+
+    @Override
+    public List<Book> getBookListByCategory(String category) {
+        List<Book> booksByCategory = bookRepository.getBookListByCategory(category);
+        return booksByCategory;
+    }
 }
