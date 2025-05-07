@@ -27,8 +27,11 @@
             </div>
         </div>
 
-        <div class="row align-items-md-stretch text">
-            <div class="col-md-12">
+        <div class="row align-items-md-stretch">
+            <div class="col-md-4">
+                <img th:src="'/BookMarket/images/'+${book.getFileName()}" style="width: 90%">
+            </div>
+            <div class="col-md-8">
                 <h3 th:text="${book.getName()}"></h3>
                 <p th:text="${book.getDescription()}"></p>
                 <br>
@@ -37,7 +40,7 @@
                 <p ><b>출판사:</b><span th:text="${book.getPublisher()}"></span></p>
                 <p ><b>출판일:</b><span th:text="${book.getReleaseDate()}"></span></p>
                 <p ><b>분류:</b><span th:text="${book.getCategory()}"></span></p>
-                <p ><b>재고량:</b><span th:text="${book.getUnitsStock()}"></span></p>
+                <p ><b>재고량:</b><span th:text="${book.getUnitsInStock()}"></span></p>
                 <h4 th:text="${book.getUnitPrice()}+' 원'"></h4>
                 <br>
                 <p><a href="#" class="btn btn-primary">도서 주문 &raquo;</a></p>
