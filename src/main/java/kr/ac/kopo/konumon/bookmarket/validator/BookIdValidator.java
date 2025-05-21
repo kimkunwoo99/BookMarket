@@ -7,8 +7,8 @@ import kr.ac.kopo.konumon.bookmarket.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BookIdValidator implements ConstraintValidator<BookId, String> {
-        @Autowired
-        private BookService bookService ;
+    @Autowired
+    private BookService bookService;
 
     @Override
     public void initialize(BookId constraintAnnotation) {
