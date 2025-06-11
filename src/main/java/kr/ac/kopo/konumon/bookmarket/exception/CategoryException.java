@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(value=HttpStatus.NOT_FOUND)
 public class CategoryException extends RuntimeException {
     private String errorMessage;
+    private String category;
     public CategoryException() {
         super();
-        errorMessage = "요청한 도서 분야를 찾을 수 없습니다.";
+        this.category = category;
+        errorMessage = "";
         System.out.println(errorMessage);
     }
 }
