@@ -1,0 +1,19 @@
+package kr.ac.kopo.konumon.bookmarket.domain;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Data
+@Entity
+public class Shopping {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name; // 배송고객명
+    @DateTimeFormat(pattern = "yyyy/MM")
+    private String date; // 배송일
+    @OneToOne
+    @JoinColumn(name = "adress_id")
+    private Address address;
+}
