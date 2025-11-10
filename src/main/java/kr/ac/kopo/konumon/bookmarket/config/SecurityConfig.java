@@ -22,15 +22,15 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService users(){
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin1234"))
-                .roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(admin);
-    }
+//    @Bean
+//    public UserDetailsService users(){
+//        UserDetails admin = User.builder()
+//                .username("admin")
+//                .password(passwordEncoder().encode("admin1234"))
+//                .roles("ADMIN")
+//                .build();
+//        return new InMemoryUserDetailsManager(admin);
+//    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authorize -> authorize
                                 .requestMatchers("/books/add").hasRole("ADMIN")
+                                .requestMatchers("/books/list").hasRole("ADMIN")
                                 .anyRequest().permitAll()
                 )
 //            .formLogin(Customizer.withDefaults());
@@ -45,10 +46,13 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/books/add")
+                        .defaultSuccessUrl("/order/list")
+                        .defaultSuccessUrl("/")
                         .failureUrl("/loginfailed")
                         .usernameParameter("username")
                         .passwordParameter("password")
                 )
+
                 .logout(
                         logout -> logout
                                 .logoutUrl("/logout")

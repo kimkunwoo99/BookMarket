@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @Entity
-public class Shopping {
+public class Shipping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,6 +14,6 @@ public class Shopping {
     @DateTimeFormat(pattern = "yyyy/MM")
     private String date; // 배송일
     @OneToOne
-    @JoinColumn(name = "adress_id")
+    @JoinColumn(name = "address_id")
     private Address address;
 }
